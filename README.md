@@ -6,7 +6,7 @@ Based off of the wonderful [kickstart.nvim](https://github.com/nvim-lua/kickstar
 ## Install Neovim
 
 [Install](https://github.com/neovim/neovim/blob/master/INSTALL.md) a modern
-[Neovim](https://neovim.io) (v0.8.0+ built with LuaJIT).
+[Neovim](https://neovim.io) (v0.9.5+ built with LuaJIT).
 
 There's many ways to accomplish this but I'll use Debian-based examples here for brevity.
 
