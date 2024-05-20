@@ -2,15 +2,12 @@
 --  See `:help vim.keymap.set()`
 
 -- keys for better default experience
--- See `:help vim.key.set()`
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- for dealing with word wrap
+-- vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- open netrw
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -32,7 +29,12 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
-vim.keymap.set("n", "<C-q>", "<C-w><C-q>")
+
+-- easier resize splits (height/width)
+vim.keymap.set("n", "<M-,>", "<c-w>5<")
+vim.keymap.set("n", "<M-.>", "<c-w>5>")
+vim.keymap.set("n", "<M-t>", "<C-W>+")
+vim.keymap.set("n", "<M-s>", "<C-W>-")
 
 -- paste over selected text without yanking it
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -59,40 +61,17 @@ vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc 
 vim.keymap.set("n", "<TAB>", ":bnext<CR>")
 vim.keymap.set("n", "<S-TAB>", ":bprevious<CR>")
 
--- use shift h & l to switch buffers
-vim.keymap.set("n", "<S-l>", ":bnext<CR>")
-vim.keymap.set("n", "<S-h>", ":bprevious<CR>")
-
 -- close buffer
-vim.keymap.set("n", "<leader>dd", ":bd<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
+vim.keymap.set("n", "<leader><leader>q", "<cmd>bd!<CR>")
 
--- tmux sessionizer
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
--- quickfix
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
--- toggle boolean word under cursor
-function ToggleBool(args)
- if args.word == "true" then
-   vim.cmd [[norm ciwfalse]]
- elseif args.word == "false" then
-   vim.cmd [[norm ciwtrue]]
- elseif args.word == "True" then
-   vim.cmd [[norm ciwFalse]]
- elseif args.word == "False" then
-   vim.cmd [[norm ciwTrue]]
- elseif args.word == "TRUE" then
-   vim.cmd [[norm ciwFALSE]]
- elseif args.word == "FALSE" then
-   vim.cmd [[norm ciwTRUE]]
- else
-   print "Word under cursor needs to be 'true' or 'false"
- end
-end
-vim.keymap.set( { "n", "v" }, "<leader>tb", ":lua ToggleBool({word=vim.fn.expand('<cword>')})<cr>",
- { desc = '[T]oggle [B]oolean (word under cursor)', noremap = true, silent = true }
-)
+-- Toggle hlsearch if it's on, otherwise just do "enter"
+vim.keymap.set("n", "<CR>", function()
+  ---@diagnostic disable-next-line: undefined-field
+  if vim.opt.hlsearch:get() then
+    vim.cmd.nohl()
+    return ""
+  else
+    return "<CR>"
+  end
+end, { expr = true })

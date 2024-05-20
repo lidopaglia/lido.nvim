@@ -29,6 +29,6 @@ return {
   -- https://github.com/folke/lazy.nvim/issues/986#issuecomment-1675385458
   config = function(_, opts)
     require("gruvbox").setup(opts)
-    vim.cmd.colorscheme('gruvbox')
+    vim.cmd.colorscheme "gruvbox"
   end,
 }

@@ -1,19 +1,34 @@
--- Set <space> as the leader key
---   See `:help mapleader`
--- NOTE: Must happen before plugins are installed
+-- lido.nvim
+-- personal neovim config
+
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
--- Set the nerd font var.
---   Used by telescope, mini, and lazy configs
-vim.g.have_nerd_font = true
+-- install `lazy.nvim` plugin manager
+--   https://github.com/folke/lazy.nvim
+--   See `:help lazy.nvim.txt`
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  }
+end
 
-require("config.options")
-require("config.keymaps")
-require("config.autocmd")
-require("config.plugmgr")
+-- Add lazy to the `runtimepath`
+---@diagnostic disable-next-line: undefined-field
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd("set path+=**")
-
--- See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- Set up Lazy and load lua/custom/plugins
+require("lazy").setup({ import = "plugins" }, {
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
