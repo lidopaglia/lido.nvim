@@ -1,6 +1,7 @@
 return {
   -- https://github.com/ellisonleao/gruvbox.nvim
   "ellisonleao/gruvbox.nvim",
+  enabled = false,
   lazy = false,
   priority = 1000,
   opts = {
