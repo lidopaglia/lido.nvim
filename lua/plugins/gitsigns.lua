@@ -16,4 +16,7 @@ return {
     signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
     numhl = false,      -- Toggle with `:Gitsigns toggle_numhl`
   },
+  config = function()
+    require "custom.gitsigns"
+  end,
 }
