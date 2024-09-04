@@ -22,7 +22,7 @@ end
 ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- Set up Lazy and load lua/custom/plugins
+-- Set up Lazy and load plugins
 require("lazy").setup({ import = "plugins" }, {
   checker = {
     enabled = true,

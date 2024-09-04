@@ -5,7 +5,7 @@ return {
   {
     -- https://github.com/epwalsh/obsidian.nvim
     "epwalsh/obsidian.nvim",
-    ebabled = true,
+    enabled = true,
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     ft = "markdown",
