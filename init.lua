@@ -1,6 +1,7 @@
 -- lido.nvim
 -- personal neovim config
 
+-- set leader key to space
 vim.g.mapleader = " "
 
 -- install `lazy.nvim` plugin manager
@@ -32,3 +33,9 @@ require("lazy").setup({ import = "plugins" }, {
     notify = false,
   },
 })
+
+-- set a transparent background
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+
+-- make comments slightly darker and italic
+vim.api.nvim_set_hl(0, "Comment", { fg = "#585858", italic = true })
