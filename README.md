@@ -28,7 +28,7 @@ rm nvim-linux64.tar.gz
 The basics are easily met on Debian/Ubuntu by installing Neovim's [build from source](https://github.com/neovim/neovim/blob/master/BUILD.md#build-prerequisites) prerequisites along with `git`:
 
 ```sh
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential git
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential git luarocks
 ```
 
 ### Optional: [`ripgrep`](https://github.com/BurntSushi/ripgrep), [`fd`](https://github.com/sharkdp/fd), & [`fzf`](https://github.com/junegunn/fzf)
