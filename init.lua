@@ -41,11 +41,11 @@ require("lazy").setup({ import = "plugins" }, {
 })
 
 -- set the colorscheme
-vim.cmd.colorscheme "habamax"
+-- vim.cmd.colorscheme "habamax"
 
 -- set a transparent background
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- make comments slightly darker and italic
 vim.api.nvim_set_hl(0, "Comment", { fg = "#585858", italic = true })
