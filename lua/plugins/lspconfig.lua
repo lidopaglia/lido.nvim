@@ -174,7 +174,7 @@ return {
 
     -- [[ Mason Setup ]]
     --   See :Mason
-    require("mason").setup {
+    require("mason").setup({
       ui = {
         border = "rounded",
         icons = {
@@ -183,7 +183,7 @@ return {
           package_uninstalled = "✗",
         },
       },
-    }
+    })
 
     -- Add additional tools for Mason to install
     local ensure_installed = vim.tbl_keys(servers or {})
@@ -193,9 +193,9 @@ return {
       "prettier",
       "yamlfix",
     })
-    require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+    require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-    require("mason-lspconfig").setup {
+    require("mason-lspconfig").setup({
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
@@ -206,22 +206,22 @@ return {
           require("lspconfig")[server_name].setup(server)
         end,
       },
-    }
+    })
 
     -- Autoformatting Setup
-    require("conform").setup {
+    require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
       },
-    }
+    })
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function(args)
-        require("conform").format {
+        require("conform").format({
           bufnr = args.buf,
           lsp_fallback = true,
           quiet = true,
-        }
+        })
       end,
     })
   end,

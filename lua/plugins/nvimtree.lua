@@ -3,7 +3,7 @@ return {
   enabled = true,
   version = "*",
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     require("nvim-tree").setup({
@@ -24,6 +24,6 @@ return {
         update_cwd = true,
       },
     })
-    vim.keymap.set('n', '<leader>tn', ':NvimTreeToggle<CR>', { desc = '[T]oggle [N]vimTree' })
+    vim.keymap.set("n", "<leader>tn", ":NvimTreeToggle<CR>", { desc = "[T]oggle [N]vimTree" })
   end,
 }

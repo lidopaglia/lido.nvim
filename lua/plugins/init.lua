@@ -44,7 +44,7 @@ return {
     event = { "InsertEnter" },
     dependencies = { "hrsh7th/nvim-cmp" },
     config = function()
-      require "custom.autopairs"
+      require("custom.autopairs")
     end,
   },
 }

@@ -11,11 +11,45 @@ return {
     -- A list of parser names, or "all"
     -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
     ensure_installed = {
-      'awk', 'bash', 'c', 'cmake', 'lua', 'luadoc', 'perl', 'printf', 'vim', 'vimdoc',
-      'astro', 'css', 'html', 'javascript', 'php', 'tsx', 'typescript',
-      'diff', 'git_config', 'git_rebase', 'gitattributes','gitcommit', 'gitignore',
-      'csv', 'dockerfile', 'json', 'just', 'passwd', 'pem', 'promql', 'yaml', 'query',
-      'markdown', 'markdown_inline', 'nix', 'go', 'gomod', 'ruby', 'rust',
+      "awk",
+      "bash",
+      "c",
+      "cmake",
+      "lua",
+      "luadoc",
+      "perl",
+      "printf",
+      "vim",
+      "vimdoc",
+      "astro",
+      "css",
+      "html",
+      "javascript",
+      "php",
+      "tsx",
+      "typescript",
+      "diff",
+      "git_config",
+      "git_rebase",
+      "gitattributes",
+      "gitcommit",
+      "gitignore",
+      "csv",
+      "dockerfile",
+      "json",
+      "just",
+      "passwd",
+      "pem",
+      "promql",
+      "yaml",
+      "query",
+      "markdown",
+      "markdown_inline",
+      "nix",
+      "go",
+      "gomod",
+      "ruby",
+      "rust",
     },
 
     -- Automatically install missing parsers when entering buffer
@@ -31,10 +65,10 @@ return {
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
       --  Setting this to true will run `:h syntax` and tree-sitter at the same time
       --  and may slow down your editor. Instead of true it can also be a list of languages.
-      additional_vim_regex_highlighting = { 'ruby' },
+      additional_vim_regex_highlighting = { "ruby" },
     },
 
-    indent = { enable = true, disable = { 'ruby' } },
+    indent = { enable = true, disable = { "ruby" } },
 
     -- enable autotagging (w/ nvim-ts-autotag plugin)
     -- autotag = { enable = true, },
@@ -65,7 +99,7 @@ return {
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
     ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup(opts)
+    require("nvim-treesitter.configs").setup(opts)
 
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

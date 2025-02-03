@@ -33,7 +33,7 @@ vim.opt.smartcase = true
 
 vim.opt.backup = false
 vim.opt.swapfile = false
-vim.opt.undodir = vim.fn.expand "$XDG_CACHE_HOME/nvim/undodir"
+vim.opt.undodir = vim.fn.expand("$XDG_CACHE_HOME/nvim/undodir")
 vim.opt.undofile = true
 
 vim.opt.colorcolumn = "80"

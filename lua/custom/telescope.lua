@@ -1,10 +1,10 @@
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 
-require("telescope").setup {
+require("telescope").setup({
   defaults = {
     -- path_display = { "smart" },
     -- sorting_strategy = "descending",
@@ -64,7 +64,7 @@ require("telescope").setup {
         end
       end,
       attach_mappings = function()
-        actions.select_default:enhance {
+        actions.select_default:enhance({
           post = function()
             -- if we found something, go to line
             local prompt = action_state.get_current_line()
@@ -74,7 +74,7 @@ require("telescope").setup {
               vim.api.nvim_win_set_cursor(0, { lnum, 0 })
             end
           end,
-        }
+        })
         return true
       end,
     },
@@ -84,14 +84,14 @@ require("telescope").setup {
       require("telescope.themes").get_dropdown(),
     },
   },
-}
+})
 
 -- Enable Telescope extensions if they are installed
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
 -- See `:help telescope.builtin`
-local builtin = require "telescope.builtin"
+local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
@@ -109,30 +109,30 @@ vim.keymap.set("n", "<leader>fe", builtin.symbols, { desc = "[F]ind [E]moji" })
 -- Slightly advanced example of overriding default behavior and theme
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-  builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+  builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
     winblend = 10,
     previewer = false,
-  })
+  }))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- It's also possible to pass additional configuration options.
 --  See `:help telescope.builtin.live_grep()` for information about particular keys
 vim.keymap.set("n", "<leader>f/", function()
-  builtin.live_grep {
+  builtin.live_grep({
     grep_open_files = true,
     prompt_title = "Live Grep in Open Files",
-  }
+  })
 end, { desc = "[F]ind [/] in Open Files" })
 
 -- Shortcut for searching your Neovim configuration files
 vim.keymap.set("n", "<leader>fn", function()
-  builtin.find_files { cwd = vim.fn.stdpath "config" }
+  builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[F]ind [N]eovim files" })
 
 vim.keymap.set("n", "<leader>ec", function()
-  builtin.find_files { cwd = vim.fn.stdpath "config", file_ignore_patterns = { ".git/" }, hidden = true }
+  builtin.find_files({ cwd = vim.fn.stdpath("config"), file_ignore_patterns = { ".git/" }, hidden = true })
 end, { desc = "[E]ditor [C]onfig" })
 
 vim.keymap.set("n", "<leader>fa", function()
-  builtin.find_files { follow = true, no_ignore = true, hidden = true, file_ignore_patterns = { ".git/" } }
+  builtin.find_files({ follow = true, no_ignore = true, hidden = true, file_ignore_patterns = { ".git/" } })
 end, { desc = "[F]ind [A]ll files" })
