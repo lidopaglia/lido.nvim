@@ -12,6 +12,15 @@ return {
         view_options = {
           show_hidden = true,
         },
+
+        -- skip prompting when:
+        --   no deletes
+        --   no cross-adapter writes (e.g. local to ssh)
+        --   at most one copy or move
+        --   at most 5 creates
+        -- See
+        --  :help oil.skip_confirm_for_simple_edits
+        skip_confirm_for_simple_edits = true,
       })
 
       -- Open parent directory in current window
