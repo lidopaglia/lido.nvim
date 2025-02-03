@@ -13,7 +13,7 @@ return {
       },
       filters = {
         custom = { "^.git$" },
-        dotfiles = true,
+        dotfiles = false,
       },
       view = {
         width = 30,
