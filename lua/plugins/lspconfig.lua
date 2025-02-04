@@ -148,6 +148,7 @@ return {
       docker_compose_language_service = {},
       html = {},
       bashls = {},
+      pyright = {},
       yamlls = {},
       lua_ls = {
         -- cmd = {...},
@@ -163,6 +164,7 @@ return {
           },
         },
       },
+      marksman = {},
     }
 
     -- Change the Diagnostic symbols in the sign column (gutter)
@@ -188,12 +190,21 @@ return {
     -- Add additional tools for Mason to install
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      "stylua", -- Used to format Lua code
+      "black",
+      "isort",
       "lua-language-server",
+      "markdownlint-cli2",
+      "markdown-toc",
       "prettier",
+      "shellcheck",
+      "shfmt",
+      "stylua",
       "yamlfix",
     })
-    require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+    require("mason-tool-installer").setup({
+      ensure_installed = ensure_installed,
+    })
 
     require("mason-lspconfig").setup({
       handlers = {
@@ -212,6 +223,11 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
+        css = { "prettier" },
+        html = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
       },
     })
 

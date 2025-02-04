@@ -78,3 +78,6 @@ end, { expr = true })
 
 -- Open Lazy shortcut
 vim.keymap.set("n", "<leader><leader>l", "<CMD>Lazy<CR>", { desc = "Open Lazy" })
+
+-- Open Mason shortcut
+vim.keymap.set("n", "<leader><leader>m", "<CMD>Mason<CR>", { desc = "Open Mason" })
