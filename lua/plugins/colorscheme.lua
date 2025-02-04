@@ -1,7 +1,7 @@
--- https://github.com/catppuccin/nvim
--- https://catppuccin.com/palette
 return {
   {
+    -- https://github.com/catppuccin/nvim
+    -- https://catppuccin.com/palette
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
@@ -21,7 +21,16 @@ return {
       vim.cmd.colorscheme("catppuccin")
     end,
   },
+
   {
+    -- https://github.com/stevearc/dressing.nvim
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    enabled = true,
+  },
+
+  {
+    -- https://github.com/xiyaowong/transparent.nvim
     "xiyaowong/transparent.nvim",
     lazy = false,
     config = {
@@ -41,6 +50,7 @@ return {
         "NotifyTRACEBorder",
         "NotifyWARNBody",
         "NotifyWARNBorder",
+        "NvimTreeNormal",
         "TelescopeBorder",
         "TelescopePreviewNormal",
         "TelescopePromptNormal",
