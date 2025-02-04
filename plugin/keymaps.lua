@@ -75,3 +75,6 @@ vim.keymap.set("n", "<CR>", function()
     return "<CR>"
   end
 end, { expr = true })
+
+-- Open Lazy shortcut
+vim.keymap.set("n", "<leader><leader>l", "<CMD>Lazy<CR>", { desc = "Open Lazy" })
