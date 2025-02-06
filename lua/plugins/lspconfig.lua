@@ -222,6 +222,7 @@ return {
     -- Autoformatting Setup
     require("conform").setup({
       formatters_by_ft = {
+        sh = { "shfmt" },
         lua = { "stylua" },
         css = { "prettier" },
         html = { "prettier" },
