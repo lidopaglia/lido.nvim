@@ -14,8 +14,8 @@ LuaJIT 2.1.1736781742
 ## Install Neovim
 
 > [!WARNING]
-> Distro packages may not ship up recent versions of Neovim (e.g. Ubuntu 24.04
-> ships `v0.9.5` and Debian 12 "bookworm" ships `v0.7.2`.
+> Distro packages may not include a recent version of Neovim (e.g. Ubuntu 24.04
+> ships `v0.9.5` and Debian 12 "bookworm" ships `v0.7.2`).
 
 Build from
 [source](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source),
@@ -23,8 +23,6 @@ download a
 [release](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-download),
 or install from
 [package](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package).
-
-#### Debian x86_64
 
 To install from release on Debian 12 "bookworm" and Ubuntu 24.04 LTS:
 
@@ -39,7 +37,7 @@ rm nvim-linux-x86_64.tar.gz
 
 ## External Dependencies
 
-Some additional packages are needed to extended Neovim's functionality.
+Some additional packages are needed to extend Neovim's functionality.
 
 Use `:checkhealth` to verify configuration and find any missing dependencies.
 
