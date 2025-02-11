@@ -17,31 +17,20 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
-      bullet = {
-        enabled = true,
-        icons = { "●", "○", "◆", "◇" },
-        ordered_icons = function(level, index, value)
-          value = vim.trim(value)
-          local value_index = tonumber(value:sub(1, #value - 1))
-          return string.format("%d.", value_index > 1 and value_index or index)
-        end,
-        left_pad = 0,
-        right_pad = 0,
-        highlight = "RenderMarkdownBullet",
+      code = {
+        sign = false,
       },
-      checkbox = {
+      heading = {
         enabled = true,
+        border = true,
+        border_virtual = true,
+        width = { "full", "full", "block" },
+        left_pad = 1,
+        right_pad = 3,
+        render_modes = true,
+        sign = false,
+        icons = { "󰎥  ", "󰎨  ", "󰎫  ", "󰎲  ", "󰎯  ", "󰎴  " },
         position = "inline",
-        unchecked = {
-          icon = "󰄱 ",
-          highlight = "RenderMarkdownUnchecked",
-          scope_highlight = nil,
-        },
-        checked = {
-          icon = "󰱒 ",
-          highlight = "RenderMarkdownChecked",
-          scope_highlight = nil,
-        },
       },
       html = {
         -- Turn on / off all HTML rendering
@@ -51,18 +40,8 @@ return {
           conceal = false,
         },
       },
-      heading = {
-        enabled = false,
-        sign = false,
-        icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
-        position = "inline",
-      },
     },
   },
-
-  -- "folke/twilight.nvim",
-  -- "folke/zen-mode.nvim",
-  -- "preservim/vim-pencil",
 
   {
     -- https://github.com/epwalsh/obsidian.nvim
