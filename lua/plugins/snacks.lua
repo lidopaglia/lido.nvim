@@ -7,6 +7,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    indent = { enabled = true },
     notifier = { enabled = true, timeout = 3000 },
     lazygit = { enabled = true },
     quickfile = { enabled = true },
