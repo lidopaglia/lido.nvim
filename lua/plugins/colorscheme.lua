@@ -1,9 +1,26 @@
 return {
   {
+    -- https://github.com/stevearc/dressing.nvim
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    enabled = true,
+  },
+  {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.zenbones_darken_comments = 45
+      vim.cmd.colorscheme("zenwritten")
+    end,
+  },
+  {
     -- https://github.com/catppuccin/nvim
     -- https://catppuccin.com/palette
     "catppuccin/nvim",
     name = "catppuccin",
+    enabled = false,
     lazy = false,
     priority = 1000,
     opts = {
@@ -20,51 +37,5 @@ return {
       -- set the colorscheme
       vim.cmd.colorscheme("catppuccin")
     end,
-  },
-
-  {
-    -- https://github.com/stevearc/dressing.nvim
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-    enabled = true,
-  },
-
-  {
-    -- https://github.com/xiyaowong/transparent.nvim
-    "xiyaowong/transparent.nvim",
-    lazy = false,
-    config = {
-      extra_groups = {
-        "FloatBorder",
-        "LSPInfoBorder",
-        "NeoTreeNormal",
-        "NeoTreeNormalNC",
-        "NormalFloat",
-        "NotifyDEBUGBody",
-        "NotifyDEBUGBorder",
-        "NotifyERRORBody",
-        "NotifyERRORBorder",
-        "NotifyINFOBody",
-        "NotifyINFOBorder",
-        "NotifyTRACEBody",
-        "NotifyTRACEBorder",
-        "NotifyWARNBody",
-        "NotifyWARNBorder",
-        "NvimTreeNormal",
-        "TelescopeBorder",
-        "TelescopePreviewNormal",
-        "TelescopePromptNormal",
-        "TelescopeResultsNormal",
-        "WhichKeyFloat",
-      },
-      exclude_groups = {},
-    },
-    keys = {
-      {
-        "<Leader>tt",
-        "<Cmd>TransparentToggle<Cr>",
-        desc = "Toggle Transparency",
-      },
-    },
   },
 }
