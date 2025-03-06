@@ -26,22 +26,11 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- add your plugins here
-    { import = "plugins" },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  spec = { { import = "plugins" } },
+  install = { colorscheme = { "quiet" } },
+  checker = { enabled = false, notify = false },
   change_detection = { notify = false },
-  ui = {
-    border = "rounded",
-    backdrop = 0,
-    title = " lazy.nvim ",
-    pills = true,
-  },
+  ui = { border = "rounded", title = " lazy.nvim " },
 })
 
 -- Quit Lazy with escape, not just `q`
