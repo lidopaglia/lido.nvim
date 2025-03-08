@@ -11,8 +11,13 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.zenbones_darken_comments = 45
+      vim.opt.background = "dark"
+      vim.g.zenwritten = {
+        transparent_background = true,
+        lighten_comments = 13,
+      }
       vim.cmd.colorscheme("zenwritten")
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end,
   },
   {
