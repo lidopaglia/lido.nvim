@@ -7,11 +7,16 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    git = { enabled = true },
+    gitbrowse = { enabled = true },
+    image = { enabled = true },
     indent = { enabled = true },
     notifier = { enabled = true, timeout = 3000 },
     lazygit = { enabled = true },
     quickfile = { enabled = true },
+    rename = { enabled = true },
     statuscolumn = { enabled = true },
+    terminal = { enabled = true },
     words = { enabled = true },
     styles = {
       notification = {
