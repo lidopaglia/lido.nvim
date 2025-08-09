@@ -1,38 +1,45 @@
 return {
-  "preservim/vim-pencil",
-  "folke/twilight.nvim",
-  "folke/zen-mode.nvim",
   {
-    -- https://github.com/epwalsh/obsidian.nvim
-    "epwalsh/obsidian.nvim",
-    ebabled = true,
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
+    -- https://github.com/tadmccorkle/markdown.nvim
+    -- also enabled as a treesitter module
+    "tadmccorkle/markdown.nvim",
     ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
-    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+
+  {
+    -- https://github.com/hedyhli/outline.nvim
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = {
+      { "<leader>to", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
     opts = {
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/Documents/vaults/notes",
-        },
-        {
-          name = "work",
-          path = "~/Documents/vaults/work",
-        },
+      symbol_folding = {
+        -- Unfold entire symbol tree by default with false, otherwise enter a
+        -- number starting from 1
+        autofold_depth = false,
+      },
+      outline_window = {
+        -- Percentage or integer of columns
+        width = 33,
       },
     },
   },
+
   {
     -- https://github.com/iamcco/markdown-preview.nvim
     "iamcco/markdown-preview.nvim",
+    keys = {
+      {
+        "<leader>mp",
+        ft = "markdown",
+        "<cmd>MarkdownPreviewToggle<cr>",
+        desc = "Markdown Preview",
+      },
+    },
+
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = "cd app && yarn install",

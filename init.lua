@@ -1,41 +1,28 @@
 -- lido.nvim
--- personal neovim config
+-------------------------------------------------------------------------------
 
--- set leader key to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.have_nerd_font = true
 
--- install `lazy.nvim` plugin manager
---   https://github.com/folke/lazy.nvim
---   See `:help lazy.nvim.txt`
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  }
-end
+vim.opt.termguicolors = true
+vim.cmd.colorscheme("habamax")
 
--- Add lazy to the `runtimepath`
----@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+-- shade comments and set italic
+vim.api.nvim_set_hl(0, "Comment", { fg = "#666666", italic = true })
 
--- Set up Lazy and load lua/custom/plugins
-require("lazy").setup({ import = "plugins" }, {
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
-})
-
--- set a transparent background
+-- make backgrounds transparent
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
 
--- make comments slightly darker and italic
-vim.api.nvim_set_hl(0, "Comment", { fg = "#585858", italic = true })
+-- thinner borders
+vim.api.nvim_set_hl(0, "VertSplit", { fg = "#444444", bg = "NONE", nocombine = true })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#444444", bg = "NONE" })
+
+-- shade the indent symbol
+vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#666666" })
+
+-- config
+require("config.lsp")
+require("config.lazy")
