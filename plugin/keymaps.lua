@@ -1,49 +1,48 @@
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+-- keymaps
 
--- keys for better default experience
+vim.keymap.set("n", "<leader>so", ":update<CR> :source<CR>")
+vim.keymap.set("n", "<leader>w", ":write<CR>")
+vim.keymap.set("n", "<leader>q", ":quit<CR>")
 
--- vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
--- dealing with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- word wrap
+-- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- keep centered
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- vim.keymap.set("n", "J", "mzJ`z")
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set("n", "n", "nzzzv")
+-- vim.keymap.set("n", "N", "Nzzzv")
 
 -- tab indent
 vim.keymap.set("v", "<TAB>", ">gv")
 vim.keymap.set("v", "<S-TAB>", "<gv")
 
--- easier move between splits
+-- move between splits
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 
--- easier resize splits (height/width)
+-- resize splits (height/width)
 vim.keymap.set("n", "<M-,>", "<c-w>5<")
 vim.keymap.set("n", "<M-.>", "<c-w>5>")
 vim.keymap.set("n", "<M-t>", "<C-W>+")
 vim.keymap.set("n", "<M-s>", "<C-W>-")
 
 -- paste over selected text without yanking it
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- yank to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- yank line to clipboard
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- delete current line adding it to the default register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -75,9 +74,3 @@ vim.keymap.set("n", "<CR>", function()
     return "<CR>"
   end
 end, { expr = true })
-
--- Open Lazy shortcut
-vim.keymap.set("n", "<leader><leader>l", "<CMD>Lazy<CR>", { desc = "Open Lazy" })
-
--- Open Mason shortcut
-vim.keymap.set("n", "<leader><leader>m", "<CMD>Mason<CR>", { desc = "Open Mason" })

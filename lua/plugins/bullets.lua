@@ -11,8 +11,8 @@
 -- By default its enabled on filetypes 'markdown', 'text', 'gitcommit',
 -- 'scratch'
 
+-- https://github.com/bullets-vim/bullets.vim
 return {
-  -- https://github.com/bullets-vim/bullets.vim
   "bullets-vim/bullets.vim",
   config = function()
     -- Disable deleting the last empty bullet when pressing <cr> or 'o'

@@ -1,4 +1,6 @@
 -- toggle boolean word under cursor
+-------------------------------------------------------------------------------
+
 function ToggleBool(args)
   if args.word == "true" then
     vim.cmd([[norm ciwfalse]])
@@ -17,8 +19,12 @@ function ToggleBool(args)
   end
 end
 
-vim.keymap.set({ "n", "v" }, "<leader>tb", ":lua ToggleBool({word=vim.fn.expand('<cword>')})<cr>", {
-  desc = "[T]oggle [B]oolean (word under cursor)",
-  noremap = true,
-  silent = true,
-})
+vim.keymap.set(
+    { "n", "v" },
+    "<leader>tb",
+    ":lua ToggleBool({word=vim.fn.expand('<cword>')})<cr>", {
+          desc = "[T]oggle [B]oolean (word under cursor)",
+          noremap = true,
+          silent = true,
+    }
+)

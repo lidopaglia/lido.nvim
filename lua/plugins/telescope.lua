@@ -1,6 +1,5 @@
+-- https://github.com/nvim-telescope/telescope.nvim
 return {
-  -- Fuzzy Finder (files, lsp, etc)
-  -- https://github.com/nvim-telescope/telescope.nvim
   "nvim-telescope/telescope.nvim",
   event = "VimEnter",
   branch = "0.1.x",
@@ -9,7 +8,6 @@ return {
     "nvim-telescope/telescope-symbols.nvim",
 
     {
-      -- See telescope-fzf-native README for installation instructions
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       cond = function()
@@ -23,30 +21,11 @@ return {
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
   config = function()
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
-
     local actions = require("telescope.actions")
     local action_state = require("telescope.actions.state")
 
     require("telescope").setup({
       defaults = {
-        -- path_display = { "smart" },
-        -- sorting_strategy = "descending",
-        -- layout_strategy = "flex",
-        -- layout_config = {
-        --   flex = {
-        --     flip_columns = 140,
-        --   },
-        --   vertical = {
-        --     preview_cutoff = 40,
-        --     prompt_position = "bottom",
-        --   },
-        --   horizontal = {
-        --     width = 0.9,
-        --     height = 0.8,
-        --   },
-        -- },
         mappings = {
           i = {
             ["<esc>"] = actions.close,
@@ -150,10 +129,6 @@ return {
     end, { desc = "[F]ind [/] in Open Files" })
 
     -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set("n", "<leader>fn", function()
-      builtin.find_files({ cwd = vim.fn.stdpath("config") })
-    end, { desc = "[F]ind [N]eovim files" })
-
     vim.keymap.set("n", "<leader>ec", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config"), file_ignore_patterns = { ".git/" }, hidden = true })
     end, { desc = "[E]ditor [C]onfig" })
